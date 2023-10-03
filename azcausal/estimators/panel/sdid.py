@@ -286,16 +286,20 @@ def sdid_plot(effect, title=None, CF=False, C=True, show=True):
     top_left.set_title(title)
 
     w = data.query("W == 0")["lambd"]
-    bottom_left.fill_between(w.index, 0.0, w, color="black")
+    # bottom_left.fill_between(w.index, 0.0, w, color="black")
 
     w = data.query("W == 1")["lambd"]
-    bottom_left.fill_between(w.index, 0.0, w, color="black")
-
+    # bottom_left.fill_between(w.index, 0.0, w, color="black")
+    bottom_left.plot(data.index, data["T"]-data["C"], "--", color="green", alpha=0.5)
+    bottom_left.set_xticklabels([])
     bottom_left.axvline(start_time, color="black", alpha=0.3)
-    bottom_left.set_ylim(0, 1)
-    bottom_left.set_xlim(*top_left.get_xlim())
-    bottom_left.set_yticklabels([])
-    bottom_left.xaxis.set_tick_params(rotation=90)
+    bottom_left.axhline( color="black", alpha=0.3)
+    
+    # bottom_left.axvline(start_time, color="black", alpha=0.3)
+    # bottom_left.set_ylim(0, 1)
+    # bottom_left.set_xlim(*top_left.get_xlim())
+    # bottom_left.set_yticklabels([])
+    # bottom_left.xaxis.set_tick_params(rotation=90)
 
     w = omega
     wp = sorted(w)[::-1]
