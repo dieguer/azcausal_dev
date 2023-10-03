@@ -290,10 +290,10 @@ def sdid_plot(effect, title=None, CF=False, C=True, show=True):
 
     w = data.query("W == 1")["lambd"]
     # bottom_left.fill_between(w.index, 0.0, w, color="black")
-    bottom_left.plot(data.index, data["T"]-data["C"], "--", color="green", alpha=0.5)
+    bottom_left.plot(data.index, data["T"]-data["C"], color="green")
     bottom_left.set_xticklabels([])
     bottom_left.axvline(start_time, color="black", alpha=0.3)
-    bottom_left.axhline( color="black", alpha=0.3)
+    bottom_left.axhline( color="black", alpha=0.5)
     
     # bottom_left.axvline(start_time, color="black", alpha=0.3)
     # bottom_left.set_ylim(0, 1)
